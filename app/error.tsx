@@ -7,7 +7,7 @@ type ErrorPageProps = {
   reset: () => void
 }
 
-export default function ErrorPage({ error, reset }: ErrorPageProps) {
+export default function ErrorPage({ reset }: ErrorPageProps) {
   return (
     <main className="bg-chalk px-6 py-section flex min-h-screen flex-col items-center justify-center text-center">
       <h1 className="text-display-md font-display italic text-ink">

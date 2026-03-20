@@ -8,7 +8,7 @@ import { SectionLabel } from '@/components/ui/SectionLabel'
 import { Tag } from '@/components/ui/Tag'
 import { MOCK_DESIGNERS } from '@/lib/mock-data'
 import { DISCIPLINES, TRANSITION_FOCUSES } from '@/lib/constants'
-import { cn } from '@/lib/utils'
+
 import { fadeInUp, staggerContainer } from '@/lib/animations'
 import type { Discipline, TransitionFocus } from '@/types'
 
