@@ -76,7 +76,7 @@ export const designerRegistrationSchema = z
   .refine(
     (data) =>
       data.structure === 'FREELANCE' ||
-      (data.companyName !== undefined && data.companyName.length > 0),
+      (data.companyName != null && data.companyName.length > 0),
     {
       message: 'Le nom de la structure est requis',
       path: ['companyName'],
