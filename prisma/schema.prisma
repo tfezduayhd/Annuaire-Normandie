@@ -1,0 +1,164 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+model Designer {
+  id              String    @id @default(cuid())
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+  slug            String    @unique
+  firstName       String
+  lastName        String
+  email           String    @unique
+  phone           String?
+  photoUrl        String?
+  bio             String    @db.Text
+  city            String
+  territory       Territory
+  disciplines     Discipline[]
+  specialties     String[]
+  seniority       Seniority
+  structure       Structure
+  companyName     String?
+  transitionFocus TransitionFocus[]
+  websiteUrl      String?
+  linkedinUrl     String?
+  instagramUrl    String?
+  behanceUrl      String?
+  isOpenToCollaboration Boolean @default(true)
+  isOpenToMentoring     Boolean @default(false)
+  isVolunteer           Boolean @default(false)
+  status          DesignerStatus @default(PENDING)
+  isVisible       Boolean        @default(false)
+  projects        Project[]
+
+  @@map("designers")
+}
+
+model Project {
+  id          String   @id @default(cuid())
+  createdAt   DateTime @default(now())
+  slug        String   @unique
+  title       String
+  description String   @db.Text
+  imageUrl    String?
+  year        Int
+  client      String?
+  tags        String[]
+  isPublic    Boolean  @default(true)
+  designer    Designer @relation(fields: [designerId], references: [id])
+  designerId  String
+
+  @@map("projects")
+}
+
+model Event {
+  id          String    @id @default(cuid())
+  createdAt   DateTime  @default(now())
+  title       String
+  description String    @db.Text
+  date        DateTime
+  endDate     DateTime?
+  location    String
+  city        String
+  isOnline    Boolean   @default(false)
+  meetUrl     String?
+  type        EventType
+  imageUrl    String?
+  registrationUrl String?
+  isPublished Boolean   @default(false)
+
+  @@map("events")
+}
+
+model ContactMessage {
+  id        String   @id @default(cuid())
+  createdAt DateTime @default(now())
+  name      String
+  email     String
+  subject   String
+  message   String   @db.Text
+  type      ContactType
+  isRead    Boolean  @default(false)
+
+  @@map("contact_messages")
+}
+
+enum Territory {
+  SEINE_MARITIME
+  EURE
+  CALVADOS
+  MANCHE
+  ORNE
+}
+
+enum Discipline {
+  DESIGN_GRAPHIQUE
+  DESIGN_PRODUIT
+  DESIGN_EXPERIENCE
+  DESIGN_SERVICE
+  DESIGN_ESPACE
+  DESIGN_NUMERIQUE
+  DESIGN_STRATEGIQUE
+  DESIGN_SOCIAL
+  ILLUSTRATION
+  MOTION_DESIGN
+  DESIGN_TYPOGRAPHIQUE
+  DESIGN_INDUSTRIEL
+}
+
+enum Seniority {
+  JUNIOR
+  CONFIRME
+  SENIOR
+  EXPERT
+}
+
+enum Structure {
+  FREELANCE
+  AGENCE
+  SALARIE
+  ENSEIGNANT
+  ETUDIANT
+}
+
+enum TransitionFocus {
+  ECOLOGIQUE
+  SOCIALE
+  NUMERIQUE_RESPONSABLE
+  ECONOMIE_CIRCULAIRE
+  INCLUSION
+  SANTE
+  ALIMENTATION
+  MOBILITE
+}
+
+enum DesignerStatus {
+  PENDING
+  APPROVED
+  REJECTED
+  ARCHIVED
+}
+
+enum EventType {
+  ATELIER
+  CONFERENCE
+  MEETUP
+  FORMATION
+  EXPOSITION
+  AUTRE
+}
+
+enum ContactType {
+  DESIGNER
+  ENTREPRISE
+  PARTENAIRE
+  PRESSE
+  AUTRE
+}
