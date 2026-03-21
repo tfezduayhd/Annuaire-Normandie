@@ -10,7 +10,7 @@ type ErrorPageProps = {
 export default function ErrorPage({ reset }: ErrorPageProps) {
   return (
     <main className="bg-chalk px-6 py-section flex min-h-screen flex-col items-center justify-center text-center">
-      <h1 className="text-display-md font-display italic text-ink">
+      <h1 className="text-display-md font-display font-bold text-ink">
         Une erreur est survenue
       </h1>
       <p className="text-slate mt-4 max-w-md text-lg">

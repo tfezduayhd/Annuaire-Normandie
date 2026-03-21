@@ -40,11 +40,11 @@ export function DesignerCard({ designer, className }: DesignerCardProps) {
       <Link href={`/annuaire/${slug}`} className="block">
         {/* Card with hover offset effect */}
         <div className="relative">
-          {/* Shadow / moss bg behind */}
-          <div className="absolute inset-0 rounded-sm bg-moss transition-transform duration-300 group-hover:translate-x-1 group-hover:translate-y-1" />
+          {/* Shadow / accent bg behind */}
+          <div className="absolute inset-0 bg-earth transition-transform duration-300 group-hover:translate-x-1 group-hover:translate-y-1" />
 
-          {/* Main card */}
-          <div className="relative rounded-sm border border-flint/10 bg-white transition-transform duration-300 group-hover:-translate-x-1 group-hover:-translate-y-1">
+          {/* Main card — white on Gris Falaise with thin border */}
+          <div className="relative border border-slate/10 bg-white transition-transform duration-300 group-hover:-translate-x-1 group-hover:-translate-y-1">
             {/* Photo */}
             <div className="relative aspect-[4/3] overflow-hidden bg-flint/10">
               {photoUrl ? (
@@ -56,7 +56,7 @@ export function DesignerCard({ designer, className }: DesignerCardProps) {
                 />
               ) : (
                 <div className="flex size-full items-center justify-center">
-                  <span className="font-display text-3xl text-flint/30">
+                  <span className="font-display text-3xl font-bold text-flint/30">
                     {firstName[0]}
                     {lastName[0]}
                   </span>
@@ -67,12 +67,13 @@ export function DesignerCard({ designer, className }: DesignerCardProps) {
             {/* Content */}
             <div className="p-4">
               <div className="mb-2 flex items-start justify-between gap-2">
-                <h3 className="font-display text-lg leading-tight text-ink">
+                <h3 className="font-display text-lg font-bold leading-tight text-ink">
                   {firstName} {lastName}
                 </h3>
                 {isOpenToCollaboration && (
                   <Handshake
-                    className="mt-0.5 size-4 shrink-0 text-moss"
+                    className="mt-0.5 size-4 shrink-0 text-earth"
+                    strokeWidth={1.5}
                     aria-label="Ouvert à la collaboration"
                   />
                 )}
@@ -92,7 +93,7 @@ export function DesignerCard({ designer, className }: DesignerCardProps) {
 
               {/* Location */}
               <div className="flex items-center gap-1 text-sm text-flint">
-                <MapPin className="size-3.5" />
+                <MapPin className="size-3.5" strokeWidth={1.5} />
                 <span>
                   {city}, {TERRITORIES[territory]}
                 </span>

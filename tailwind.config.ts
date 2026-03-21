@@ -6,17 +6,18 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        chalk: '#F5F2ED',
-        slate: '#2C3340',
-        earth: '#7A5C3E',
-        flint: '#8A8C8F',
-        moss: '#4A6741',
-        ink: '#1A1C1E',
+        chalk: '#F2F2F2',
+        slate: '#1A1A1A',
+        earth: '#003366',
+        flint: '#6B7280',
+        moss: '#A04035',
+        ink: '#1A1A1A',
+        colza: '#FFD700',
       },
       fontFamily: {
-        display: ['Fraunces', 'Georgia', 'serif'],
-        sans: ['DM Sans', 'system-ui', 'sans-serif'],
-        mono: ['DM Mono', 'monospace'],
+        display: ['var(--font-inter)', 'system-ui', 'sans-serif'],
+        sans: ['var(--font-montserrat)', 'system-ui', 'sans-serif'],
+        mono: ['var(--font-space-mono)', 'monospace'],
       },
       fontSize: {
         'display-xl': ['clamp(56px, 8vw, 120px)', { lineHeight: '0.95', letterSpacing: '-0.02em' }],

@@ -3,16 +3,32 @@
 import { motion } from 'framer-motion'
 import { Button } from '@/components/ui/Button'
 import { AnimatedText } from '@/components/ui/AnimatedText'
+import { CausticsShader } from '@/components/home/CausticsShader'
 import { fadeInUp, staggerContainer } from '@/lib/animations'
 
 export function Hero() {
   return (
-    <section className="bg-chalk px-6 pb-20 pt-32 md:px-12 md:pb-32 md:pt-44 lg:px-20">
-      <div className="mx-auto max-w-6xl">
+    <section className="relative overflow-hidden bg-chalk px-6 pb-20 pt-32 md:px-12 md:pb-32 md:pt-44 lg:px-20">
+      {/* Caustics shader — subtle light refraction effect */}
+      <CausticsShader />
+
+      {/* Architectural grid lines */}
+      <div className="pointer-events-none absolute inset-0" aria-hidden="true">
+        <div className="mx-auto flex h-full max-w-6xl justify-between px-6 md:px-12 lg:px-20">
+          {[0, 1, 2, 3].map((i) => (
+            <div
+              key={i}
+              className="h-full w-px bg-slate/[0.06]"
+            />
+          ))}
+        </div>
+      </div>
+
+      <div className="relative mx-auto max-w-6xl">
         <AnimatedText
           text="Le design normand, collectif et engagé."
           as="h1"
-          className="font-display text-display-xl italic text-ink"
+          className="font-display text-display-xl font-bold text-ink"
           staggerDelay={0.05}
         />
 
@@ -34,7 +50,7 @@ export function Hero() {
             variants={fadeInUp}
             className="flex flex-wrap items-center gap-4"
           >
-            <Button href="/rejoindre" variant="primary" size="lg">
+            <Button href="/rejoindre" variant="moss" size="lg">
               Rejoindre la communauté
             </Button>
             <Button href="/annuaire" variant="secondary" size="lg">

@@ -57,11 +57,11 @@ export function MobileMenu({ open, onClose, links }: MobileMenuProps) {
                 onClick={onClose}
                 aria-label="Fermer le menu"
                 className={cn(
-                  'rounded-sm p-2 text-slate transition-colors hover:bg-slate/10',
-                  'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-moss'
+                  'p-2 text-slate transition-colors hover:bg-slate/10',
+                  'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-earth'
                 )}
               >
-                <X className="h-5 w-5" />
+                <X className="h-5 w-5" strokeWidth={1.5} />
               </button>
             </div>
 
@@ -71,7 +71,7 @@ export function MobileMenu({ open, onClose, links }: MobileMenuProps) {
                   key={link.href}
                   href={link.href}
                   onClick={onClose}
-                  className="font-display text-2xl font-medium text-ink transition-colors hover:text-moss"
+                  className="font-display text-2xl font-bold text-ink transition-colors hover:text-earth"
                 >
                   {link.label}
                 </Link>

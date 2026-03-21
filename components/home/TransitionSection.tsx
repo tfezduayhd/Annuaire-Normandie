@@ -48,7 +48,7 @@ export function TransitionSection() {
         >
           <motion.h2
             variants={fadeInUp}
-            className="max-w-3xl font-display text-display-md italic"
+            className="max-w-3xl font-display text-display-md font-bold"
           >
             Le design au service des transitions
           </motion.h2>
@@ -68,9 +68,9 @@ export function TransitionSection() {
             {THEMES.map(({ key, label, icon: Icon }) => (
               <div
                 key={key}
-                className="flex flex-col items-center gap-3 rounded-sm bg-white/10 p-6 text-center transition-colors hover:bg-white/20"
+                className="flex flex-col items-center gap-3 border border-white/20 p-6 text-center transition-colors hover:bg-white/10"
               >
-                <Icon className="h-7 w-7" aria-hidden="true" />
+                <Icon className="h-7 w-7" strokeWidth={1.5} aria-hidden="true" />
                 <span className="font-mono text-xs uppercase tracking-wider">
                   {label}
                 </span>

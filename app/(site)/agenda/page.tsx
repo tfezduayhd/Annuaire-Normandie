@@ -129,7 +129,7 @@ function AgendaContent() {
         <button
           onClick={() => setTab('upcoming')}
           className={cn(
-            'rounded-sm px-5 py-2.5 font-mono text-sm transition-colors',
+            'px-5 py-2.5 font-mono text-sm transition-colors',
             tab === 'upcoming'
               ? 'bg-slate text-white'
               : 'border border-flint/30 bg-chalk text-flint hover:bg-flint/5',
@@ -140,7 +140,7 @@ function AgendaContent() {
         <button
           onClick={() => setTab('past')}
           className={cn(
-            'rounded-sm px-5 py-2.5 font-mono text-sm transition-colors',
+            'px-5 py-2.5 font-mono text-sm transition-colors',
             tab === 'past'
               ? 'bg-slate text-white'
               : 'border border-flint/30 bg-chalk text-flint hover:bg-flint/5',
@@ -182,7 +182,7 @@ function AgendaContent() {
             <motion.li key={event.id} variants={fadeInUp}>
               <article
                 className={cn(
-                  'flex flex-col gap-6 rounded-sm border border-flint/10 bg-white p-6 transition-shadow hover:shadow-sm sm:flex-row sm:items-start',
+                  'flex flex-col gap-6 border border-flint/10 bg-white p-6 transition-shadow hover:shadow-sm sm:flex-row sm:items-start',
                   isPast && 'opacity-60',
                 )}
               >
@@ -243,7 +243,7 @@ export default function AgendaPage() {
   return (
     <div className="bg-chalk px-6 py-section md:px-12 lg:px-20">
       <header className="mb-16">
-        <h1 className="font-display text-display-lg italic text-ink">
+        <h1 className="font-display text-display-lg font-bold text-ink">
           Agenda
         </h1>
       </header>

@@ -48,10 +48,10 @@ function ProjectCard({ project }: { project: ProjectWithDesigner }) {
   return (
     <motion.article variants={fadeInUp} className="group">
       <Link href={`/projets/${project.slug}`} className="block">
-        <div className="aspect-[4/3] bg-slate/10 rounded-sm flex items-center justify-center mb-4">
+        <div className="aspect-[4/3] bg-slate/10 flex items-center justify-center mb-4">
           <ImageIcon className="h-10 w-10 text-flint" />
         </div>
-        <h2 className="font-display text-lg text-ink group-hover:text-moss transition-colors">
+        <h2 className="font-display text-lg text-ink group-hover:text-earth transition-colors">
           {project.title}
         </h2>
       </Link>
@@ -95,7 +95,7 @@ export default function ProjetsPage() {
     <div className="bg-chalk px-6 py-section md:px-12 lg:px-20">
       <div className="mx-auto max-w-6xl">
         <SectionLabel number="01" label="PROJETS" className="mb-6" />
-        <h1 className="font-display text-display-lg italic text-ink mb-12">
+        <h1 className="font-display text-display-lg font-bold text-ink mb-12">
           Projets &amp; Expérimentations
         </h1>
 

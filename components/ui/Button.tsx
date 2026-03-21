@@ -7,6 +7,7 @@ const variantStyles = {
     'border border-slate text-slate hover:bg-slate hover:text-white',
   moss: 'bg-moss text-white hover:bg-moss/90',
   ghost: 'bg-transparent text-slate hover:bg-chalk',
+  earth: 'bg-earth text-white hover:bg-earth/90',
 } as const
 
 const sizeStyles = {
@@ -42,8 +43,8 @@ export function Button({
   ...props
 }: ButtonProps) {
   const classes = cn(
-    'inline-flex items-center justify-center rounded-sm font-medium transition-colors',
-    'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-moss',
+    'inline-flex items-center justify-center font-medium transition-colors',
+    'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-earth',
     'disabled:pointer-events-none disabled:opacity-50',
     variantStyles[variant],
     sizeStyles[size],

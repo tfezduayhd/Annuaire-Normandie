@@ -25,7 +25,7 @@ export default function ManifestePage() {
   return (
     <div className="bg-chalk px-6 py-section md:px-12 lg:px-20">
       <header className="mb-24">
-        <h1 className="font-display text-display-xl italic text-ink">
+        <h1 className="font-display text-display-xl font-bold text-ink">
           Manifeste
         </h1>
       </header>
@@ -54,7 +54,7 @@ export default function ManifestePage() {
           {/* Section 01 — Qui nous sommes */}
           <section id="qui-nous-sommes" className="mb-24 scroll-mt-32">
             <SectionLabel number="01" label="QUI NOUS SOMMES" className="mb-6 block" />
-            <h2 className="mb-8 font-display text-display-md italic text-ink">
+            <h2 className="mb-8 font-display text-display-md font-bold text-ink">
               Qui nous sommes
             </h2>
             <div className="max-w-prose space-y-6 text-lg leading-relaxed text-slate/80">
@@ -88,7 +88,7 @@ export default function ManifestePage() {
           {/* Section 02 — Notre manifeste */}
           <section id="notre-manifeste" className="mb-24 scroll-mt-32">
             <SectionLabel number="02" label="NOTRE MANIFESTE" className="mb-6 block" />
-            <h2 className="mb-8 font-display text-display-md italic text-ink">
+            <h2 className="mb-8 font-display text-display-md font-bold text-ink">
               Notre manifeste
             </h2>
             <div className="max-w-prose space-y-6 text-lg leading-relaxed text-slate/80">
@@ -166,7 +166,7 @@ export default function ManifestePage() {
               label="NOTRE FONCTIONNEMENT"
               className="mb-6 block"
             />
-            <h2 className="mb-8 font-display text-display-md italic text-ink">
+            <h2 className="mb-8 font-display text-display-md font-bold text-ink">
               Notre fonctionnement
             </h2>
             <div className="max-w-prose space-y-6 text-lg leading-relaxed text-slate/80">
@@ -204,14 +204,14 @@ export default function ManifestePage() {
               label="NOS PARTENAIRES"
               className="mb-6 block"
             />
-            <h2 className="mb-8 font-display text-display-md italic text-ink">
+            <h2 className="mb-8 font-display text-display-md font-bold text-ink">
               Nos partenaires
             </h2>
             <div className="grid grid-cols-2 gap-6 sm:grid-cols-3 lg:grid-cols-3">
               {Array.from({ length: 6 }).map((_, i) => (
                 <div
                   key={i}
-                  className="flex aspect-[3/2] items-center justify-center rounded-sm border border-flint/20 bg-flint/5"
+                  className="flex aspect-[3/2] items-center justify-center border border-flint/20 bg-flint/5"
                 >
                   <span className="font-mono text-xs text-flint/40">
                     Logo partenaire

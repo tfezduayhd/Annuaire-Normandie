@@ -14,7 +14,7 @@ export default function RejoindrePage() {
       <div className="mx-auto max-w-4xl">
         <SectionLabel number="01" label="Inscription" className="mb-6" />
 
-        <h1 className="font-display text-display-lg italic text-ink">
+        <h1 className="font-display text-display-lg font-bold text-ink">
           Rejoindre la communauté
         </h1>
 
