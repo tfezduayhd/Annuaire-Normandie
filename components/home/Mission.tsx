@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { SectionLabel } from '@/components/ui/SectionLabel'
+import { GridDistortion } from '@/components/home/GridDistortion'
 import { fadeInUp, staggerContainer } from '@/lib/animations'
 
 const PILLARS = [
@@ -27,8 +28,11 @@ const PILLARS = [
 
 export function Mission() {
   return (
-    <section className="px-6 py-section md:px-12 lg:px-20">
-      <div className="mx-auto max-w-6xl">
+    <section className="relative border-b border-slate/10 px-6 py-section md:px-12 lg:px-20">
+      {/* Trame de Reconstruction — interactive grid distortion */}
+      <GridDistortion />
+
+      <div className="relative mx-auto max-w-6xl">
         <SectionLabel number="01" label="POURQUOI" className="mb-12" />
 
         <motion.div
@@ -36,10 +40,10 @@ export function Mission() {
           initial="initial"
           whileInView="animate"
           viewport={{ once: true, margin: '-10%' }}
-          className="grid gap-12 md:grid-cols-3 md:gap-8"
+          className="grid gap-px bg-slate/10 md:grid-cols-3"
         >
           {PILLARS.map((pillar) => (
-            <motion.article key={pillar.number} variants={fadeInUp}>
+            <motion.article key={pillar.number} variants={fadeInUp} className="bg-chalk p-8">
               <span className="font-display text-display-lg font-bold text-chalk select-none [-webkit-text-stroke:1px_theme(colors.slate)]">
                 {pillar.number}
               </span>

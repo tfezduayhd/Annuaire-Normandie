@@ -8,23 +8,33 @@ import { fadeInUp, staggerContainer } from '@/lib/animations'
 
 export function Hero() {
   return (
-    <section className="relative overflow-hidden bg-chalk px-6 pb-20 pt-32 md:px-12 md:pb-32 md:pt-44 lg:px-20">
+    <section className="relative overflow-hidden border-b border-slate/10 bg-chalk px-6 pb-20 pt-32 md:px-12 md:pb-32 md:pt-44 lg:px-20">
       {/* Caustics shader — subtle light refraction effect */}
       <CausticsShader />
 
-      {/* Architectural grid lines */}
+      {/* Architectural grid lines — visible construction grid */}
       <div className="pointer-events-none absolute inset-0" aria-hidden="true">
         <div className="mx-auto flex h-full max-w-6xl justify-between px-6 md:px-12 lg:px-20">
-          {[0, 1, 2, 3].map((i) => (
+          {[0, 1, 2, 3, 4, 5].map((i) => (
             <div
               key={i}
-              className="h-full w-px bg-slate/[0.06]"
+              className="h-full w-px bg-slate/[0.08]"
             />
           ))}
         </div>
       </div>
 
       <div className="relative mx-auto max-w-6xl">
+        {/* Section label — institutional numbering */}
+        <motion.span
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.6 }}
+          className="mb-8 block font-mono text-xs uppercase tracking-widest text-flint"
+        >
+          / 00 — DESIGN LAB NORMANDIE
+        </motion.span>
+
         <AnimatedText
           text="Le design normand, collectif et engagé."
           as="h1"
@@ -43,7 +53,7 @@ export function Hero() {
             className="text-lg leading-relaxed text-flint"
           >
             Design Lab Normandie fédère les designers du territoire pour
-            répondre aux enjeux de transition.
+            répondre aux enjeux de transition. Structure, clarté, vision.
           </motion.p>
 
           <motion.div
@@ -58,12 +68,25 @@ export function Hero() {
             </Button>
           </motion.div>
 
-          <motion.p
+          <motion.div
             variants={fadeInUp}
-            className="font-mono text-sm text-flint"
+            className="flex items-center gap-6 border-t border-slate/10 pt-6"
           >
-            47 designers inscrits
-          </motion.p>
+            <div>
+              <span className="font-display text-2xl font-bold text-ink">47</span>
+              <span className="ml-1 font-mono text-xs uppercase tracking-wider text-flint">designers</span>
+            </div>
+            <div className="h-6 w-px bg-slate/10" />
+            <div>
+              <span className="font-display text-2xl font-bold text-ink">5</span>
+              <span className="ml-1 font-mono text-xs uppercase tracking-wider text-flint">départements</span>
+            </div>
+            <div className="h-6 w-px bg-slate/10" />
+            <div>
+              <span className="font-display text-2xl font-bold text-ink">12</span>
+              <span className="ml-1 font-mono text-xs uppercase tracking-wider text-flint">disciplines</span>
+            </div>
+          </motion.div>
         </motion.div>
       </div>
     </section>
