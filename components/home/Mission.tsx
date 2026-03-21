@@ -1,5 +1,6 @@
 'use client'
 
+import { useRef } from 'react'
 import { motion } from 'framer-motion'
 import { SectionLabel } from '@/components/ui/SectionLabel'
 import { GridDistortion } from '@/components/home/GridDistortion'
@@ -27,10 +28,12 @@ const PILLARS = [
 ] as const
 
 export function Mission() {
+  const sectionRef = useRef<HTMLElement>(null)
+
   return (
-    <section className="relative border-b border-slate/10 px-6 py-section md:px-12 lg:px-20">
+    <section ref={sectionRef} className="relative border-b border-slate/10 px-6 py-section md:px-12 lg:px-20">
       {/* Trame de Reconstruction — interactive grid distortion */}
-      <GridDistortion />
+      <GridDistortion containerRef={sectionRef} />
 
       <div className="relative mx-auto max-w-6xl">
         <SectionLabel number="01" label="POURQUOI" className="mb-12" />

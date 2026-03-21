@@ -7,7 +7,11 @@ const LINE_COLOR = 'rgba(0, 51, 102, 0.08)'
 const DISTORTION_RADIUS = 150
 const DISTORTION_STRENGTH = 8
 
-export function GridDistortion() {
+type GridDistortionProps = {
+  containerRef: React.RefObject<HTMLElement>
+}
+
+export function GridDistortion({ containerRef }: GridDistortionProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const mouseRef = useRef({ x: -1000, y: -1000 })
   const animationRef = useRef<number>(0)
@@ -89,7 +93,8 @@ export function GridDistortion() {
 
   useEffect(() => {
     const canvas = canvasRef.current
-    if (!canvas || reducedMotion) return
+    const container = containerRef.current
+    if (!canvas || !container || reducedMotion) return
 
     const resize = () => {
       const rect = canvas.getBoundingClientRect()
@@ -104,8 +109,9 @@ export function GridDistortion() {
     const observer = new ResizeObserver(resize)
     observer.observe(canvas)
 
+    // Listen on the parent container — canvas stays pointer-events-none
     const handleMouseMove = (e: MouseEvent) => {
-      const rect = canvas.getBoundingClientRect()
+      const rect = container.getBoundingClientRect()
       mouseRef.current = {
         x: e.clientX - rect.left,
         y: e.clientY - rect.top,
@@ -116,24 +122,24 @@ export function GridDistortion() {
       mouseRef.current = { x: -1000, y: -1000 }
     }
 
-    canvas.addEventListener('mousemove', handleMouseMove)
-    canvas.addEventListener('mouseleave', handleMouseLeave)
+    container.addEventListener('mousemove', handleMouseMove)
+    container.addEventListener('mouseleave', handleMouseLeave)
     animationRef.current = requestAnimationFrame(draw)
 
     return () => {
       cancelAnimationFrame(animationRef.current)
       observer.disconnect()
-      canvas.removeEventListener('mousemove', handleMouseMove)
-      canvas.removeEventListener('mouseleave', handleMouseLeave)
+      container.removeEventListener('mousemove', handleMouseMove)
+      container.removeEventListener('mouseleave', handleMouseLeave)
     }
-  }, [draw, reducedMotion])
+  }, [draw, reducedMotion, containerRef])
 
   if (reducedMotion) return null
 
   return (
     <canvas
       ref={canvasRef}
-      className="pointer-events-auto absolute inset-0 h-full w-full opacity-60"
+      className="pointer-events-none absolute inset-0 h-full w-full opacity-60"
       aria-hidden="true"
     />
   )
