@@ -66,7 +66,7 @@ function Dropdown({
         type="button"
         onClick={() => setOpen((o) => !o)}
         className={cn(
-          'flex items-center gap-1.5 rounded-sm border px-3 py-2 font-mono text-xs transition-colors',
+          'flex items-center gap-1.5 border px-3 py-2 font-mono text-xs transition-colors',
           selected.length > 0
             ? 'border-moss bg-moss/10 text-moss'
             : 'border-flint/20 text-flint hover:border-flint/40'
@@ -93,7 +93,7 @@ function Dropdown({
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 4 }}
             transition={{ duration: 0.15 }}
-            className="absolute left-0 top-full z-30 mt-1.5 max-h-64 min-w-[220px] overflow-y-auto rounded-sm border border-flint/20 bg-white p-2 shadow-lg"
+            className="absolute left-0 top-full z-30 mt-1.5 max-h-64 min-w-[220px] overflow-y-auto border border-flint/20 bg-white p-2 shadow-lg"
           >
             {options.map((opt) => {
               const isActive = selected.includes(opt.value)
@@ -106,7 +106,7 @@ function Dropdown({
                     if (!multi) setOpen(false)
                   }}
                   className={cn(
-                    'flex w-full items-center gap-2 rounded-sm px-2.5 py-1.5 text-left font-sans text-sm transition-colors',
+                    'flex w-full items-center gap-2 px-2.5 py-1.5 text-left font-sans text-sm transition-colors',
                     isActive
                       ? 'bg-moss/10 text-moss'
                       : 'text-ink hover:bg-chalk'
@@ -115,7 +115,7 @@ function Dropdown({
                   {multi && (
                     <span
                       className={cn(
-                        'flex size-4 shrink-0 items-center justify-center rounded-sm border',
+                        'flex size-4 shrink-0 items-center justify-center border',
                         isActive
                           ? 'border-moss bg-moss text-white'
                           : 'border-flint/30'
@@ -184,7 +184,7 @@ function MobileDrawer({ open, onClose, children }: MobileDrawerProps) {
               <button
                 type="button"
                 onClick={onClose}
-                className="rounded-sm p-1.5 text-flint transition-colors hover:text-ink"
+                className="p-1.5 text-flint transition-colors hover:text-ink"
               >
                 <X className="size-5" />
                 <span className="sr-only">Fermer</span>
@@ -229,7 +229,7 @@ function DrawerSection({
               type="button"
               onClick={() => onToggle(opt.value)}
               className={cn(
-                'rounded-sm border px-3 py-1.5 font-sans text-sm transition-colors',
+                'border px-3 py-1.5 font-sans text-sm transition-colors',
                 isActive
                   ? 'border-moss bg-moss/10 text-moss'
                   : 'border-flint/20 text-flint hover:border-flint/40'
@@ -353,7 +353,7 @@ export function FilterBar() {
           type="button"
           onClick={toggleCollaboration}
           className={cn(
-            'rounded-sm border px-3 py-1.5 font-sans text-sm transition-colors',
+            'border px-3 py-1.5 font-sans text-sm transition-colors',
             collaboration
               ? 'border-moss bg-moss/10 text-moss'
               : 'border-flint/20 text-flint hover:border-flint/40'
@@ -410,7 +410,7 @@ export function FilterBar() {
           type="button"
           onClick={toggleCollaboration}
           className={cn(
-            'rounded-sm border px-3 py-2 font-mono text-xs transition-colors',
+            'border px-3 py-2 font-mono text-xs transition-colors',
             collaboration
               ? 'border-moss bg-moss/10 text-moss'
               : 'border-flint/20 text-flint hover:border-flint/40'
@@ -435,7 +435,7 @@ export function FilterBar() {
         <button
           type="button"
           onClick={() => setDrawerOpen(true)}
-          className="flex items-center gap-2 rounded-sm border border-flint/20 px-4 py-2.5 font-mono text-xs text-flint transition-colors hover:border-flint/40"
+          className="flex items-center gap-2 border border-flint/20 px-4 py-2.5 font-mono text-xs text-flint transition-colors hover:border-flint/40"
         >
           <SlidersHorizontal className="size-4" />
           Filtres

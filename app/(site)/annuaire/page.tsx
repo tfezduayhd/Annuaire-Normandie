@@ -112,7 +112,7 @@ function Pagination({
       {currentPage > 1 && (
         <Link
           href={buildHref(currentPage - 1)}
-          className="rounded-sm border border-flint/20 px-3 py-2 font-mono text-xs text-flint transition-colors hover:border-flint/40"
+          className="border border-flint/20 px-3 py-2 font-mono text-xs text-flint transition-colors hover:border-flint/40"
         >
           ← Précédent
         </Link>
@@ -124,8 +124,8 @@ function Pagination({
           href={buildHref(p)}
           className={
             p === currentPage
-              ? 'rounded-sm bg-slate px-3 py-2 font-mono text-xs text-white'
-              : 'rounded-sm border border-flint/20 px-3 py-2 font-mono text-xs text-flint transition-colors hover:border-flint/40'
+              ? 'bg-slate px-3 py-2 font-mono text-xs text-white'
+              : 'border border-flint/20 px-3 py-2 font-mono text-xs text-flint transition-colors hover:border-flint/40'
           }
           aria-current={p === currentPage ? 'page' : undefined}
         >
@@ -136,7 +136,7 @@ function Pagination({
       {currentPage < totalPages && (
         <Link
           href={buildHref(currentPage + 1)}
-          className="rounded-sm border border-flint/20 px-3 py-2 font-mono text-xs text-flint transition-colors hover:border-flint/40"
+          className="border border-flint/20 px-3 py-2 font-mono text-xs text-flint transition-colors hover:border-flint/40"
         >
           Suivant →
         </Link>
@@ -166,7 +166,7 @@ export default function AnnuairePage({ searchParams }: PageProps) {
     <div className="bg-chalk px-6 py-section md:px-12 lg:px-20">
       <div className="mx-auto max-w-6xl">
         <SectionLabel number="01" label="ANNUAIRE" className="mb-4" />
-        <h1 className="mb-10 font-display text-display-lg italic text-ink">
+        <h1 className="mb-10 font-display text-display-lg font-bold text-ink">
           Annuaire
         </h1>
 

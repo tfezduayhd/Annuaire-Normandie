@@ -43,7 +43,7 @@ export default function AdminDesignersPage() {
     <div className="mx-auto max-w-6xl space-y-6">
       <h2 className="font-display text-2xl text-ink">Gestion des designers</h2>
 
-      <div className="overflow-x-auto rounded-sm border border-flint/10 bg-white">
+      <div className="overflow-x-auto border border-flint/10 bg-white">
         <table className="w-full text-left text-sm">
           <thead>
             <tr className="border-b border-flint/10">
@@ -86,7 +86,7 @@ export default function AdminDesignersPage() {
                 </td>
                 <td className="px-4 py-3">
                   <span
-                    className={`inline-block rounded-sm px-2 py-0.5 text-xs font-medium ${statusStyles[designer.status]}`}
+                    className={`inline-block px-2 py-0.5 text-xs font-medium ${statusStyles[designer.status]}`}
                   >
                     {statusLabels[designer.status]}
                   </span>
@@ -95,15 +95,15 @@ export default function AdminDesignersPage() {
                   <div className="flex gap-2">
                     {designer.status === 'PENDING' && (
                       <>
-                        <button className="rounded-sm bg-moss px-3 py-1 text-xs font-medium text-white transition-colors hover:bg-moss/90">
+                        <button className="bg-moss px-3 py-1 text-xs font-medium text-white transition-colors hover:bg-moss/90">
                           Approuver
                         </button>
-                        <button className="rounded-sm border border-flint/20 px-3 py-1 text-xs font-medium text-slate transition-colors hover:bg-chalk">
+                        <button className="border border-flint/20 px-3 py-1 text-xs font-medium text-slate transition-colors hover:bg-chalk">
                           Rejeter
                         </button>
                       </>
                     )}
-                    <button className="rounded-sm border border-slate px-3 py-1 text-xs font-medium text-slate transition-colors hover:bg-slate hover:text-white">
+                    <button className="border border-slate px-3 py-1 text-xs font-medium text-slate transition-colors hover:bg-slate hover:text-white">
                       Voir
                     </button>
                   </div>

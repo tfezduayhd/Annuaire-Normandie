@@ -75,7 +75,7 @@ export default function ProjetDetailPage({
         </Link>
 
         {/* Title */}
-        <h1 className="font-display text-display-md italic text-ink mt-4 mb-10">
+        <h1 className="font-display text-display-md font-bold text-ink mt-4 mb-10">
           {project.title}
         </h1>
 
@@ -88,7 +88,7 @@ export default function ProjetDetailPage({
             <dd>
               <Link
                 href={`/annuaire/${designer.slug}`}
-                className="text-sm text-ink hover:text-moss transition-colors"
+                className="text-sm text-ink hover:text-earth transition-colors"
               >
                 {designer.firstName} {designer.lastName}
               </Link>
@@ -152,7 +152,7 @@ export default function ProjetDetailPage({
           <SectionLabel number="00" label="DESIGNER" className="mb-4" />
           <Link
             href={`/annuaire/${designer.slug}`}
-            className="block rounded-sm border border-flint/20 p-6 hover:border-moss/40 transition-colors"
+            className="block border border-flint/20 p-6 hover:border-moss/40 transition-colors"
           >
             <p className="font-display text-lg text-ink">
               {designer.firstName} {designer.lastName}

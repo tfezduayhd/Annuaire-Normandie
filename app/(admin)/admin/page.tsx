@@ -37,7 +37,7 @@ export default function AdminDashboardPage() {
         {stats.map((stat) => (
           <div
             key={stat.label}
-            className={`rounded-sm border border-flint/10 border-l-4 p-6 ${stat.accent}`}
+            className={`border border-flint/10 border-l-4 p-6 ${stat.accent}`}
           >
             <p className="font-mono text-xs uppercase tracking-widest text-flint">
               {stat.label}
@@ -49,7 +49,7 @@ export default function AdminDashboardPage() {
 
       <div className="grid gap-8 md:grid-cols-2">
         {/* Disciplines */}
-        <div className="rounded-sm border border-flint/10 bg-white p-6">
+        <div className="border border-flint/10 bg-white p-6">
           <h3 className="mb-4 font-mono text-xs uppercase tracking-widest text-flint">
             Par discipline
           </h3>
@@ -64,7 +64,7 @@ export default function AdminDashboardPage() {
         </div>
 
         {/* Territories */}
-        <div className="rounded-sm border border-flint/10 bg-white p-6">
+        <div className="border border-flint/10 bg-white p-6">
           <h3 className="mb-4 font-mono text-xs uppercase tracking-widest text-flint">
             Par territoire
           </h3>

@@ -12,7 +12,7 @@ export default function ContactPage() {
     <section className="bg-chalk px-6 py-section md:px-12 lg:px-20">
       <div className="mx-auto max-w-6xl">
         <SectionLabel number="01" label="CONTACT" />
-        <h1 className="mt-4 font-display text-display-lg italic text-ink">
+        <h1 className="mt-4 font-display text-display-lg font-bold text-ink">
           Contact
         </h1>
 
@@ -61,7 +61,7 @@ export default function ContactPage() {
             </div>
 
             {/* SVG Map of Normandy */}
-            <div className="rounded-sm border border-flint/10 bg-white p-6">
+            <div className="border border-flint/10 bg-white p-6">
               <p className="mb-4 font-mono text-xs uppercase text-flint">
                 Les 5 départements normands
               </p>

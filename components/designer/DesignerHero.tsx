@@ -50,7 +50,7 @@ export function DesignerHero({ designer }: DesignerHeroProps) {
         <div className="flex flex-col gap-10 lg:flex-row lg:gap-16">
           {/* Photo */}
           <div className="w-full shrink-0 lg:w-2/5">
-            <div className="relative aspect-[4/3] overflow-hidden rounded-sm bg-flint/10">
+            <div className="relative aspect-[4/3] overflow-hidden bg-flint/10">
               {designer.photoUrl ? (
                 <Image
                   src={designer.photoUrl}
@@ -72,7 +72,7 @@ export function DesignerHero({ designer }: DesignerHeroProps) {
 
           {/* Info */}
           <div className="flex-1">
-            <h1 className="mb-4 font-display text-display-md italic text-ink">
+            <h1 className="mb-4 font-display text-display-md font-bold text-ink">
               {designer.firstName} {designer.lastName}
             </h1>
 
@@ -108,7 +108,7 @@ export function DesignerHero({ designer }: DesignerHeroProps) {
                     href={href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex size-10 items-center justify-center rounded-sm border border-flint/20 text-flint transition-colors hover:border-moss hover:text-moss"
+                    className="flex size-10 items-center justify-center border border-flint/20 text-flint transition-colors hover:border-moss hover:text-earth"
                     aria-label={label}
                   >
                     <Icon className="size-4" />

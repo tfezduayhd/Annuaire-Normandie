@@ -9,7 +9,7 @@ type DesignerGridProps = {
 export function DesignerGrid({ designers, total }: DesignerGridProps) {
   if (designers.length === 0) {
     return (
-      <div className="flex min-h-[200px] items-center justify-center rounded-sm border border-dashed border-flint/30 p-8">
+      <div className="flex min-h-[200px] items-center justify-center border border-dashed border-flint/30 p-8">
         <p className="text-center font-sans text-flint">
           Aucun designer trouvé
         </p>

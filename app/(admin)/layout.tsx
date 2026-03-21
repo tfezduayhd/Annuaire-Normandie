@@ -23,7 +23,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
               key={item.href}
               href={item.href}
               className={cn(
-                'flex items-center gap-3 rounded-sm px-3 py-2 font-sans text-sm text-flint transition-colors',
+                'flex items-center gap-3 px-3 py-2 font-sans text-sm text-flint transition-colors',
                 'hover:bg-chalk hover:text-ink'
               )}
             >
@@ -33,7 +33,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
           ))}
         </nav>
 
-        <div className="mt-8 rounded-sm bg-chalk p-3">
+        <div className="mt-8 bg-chalk p-3">
           <p className="font-mono text-xs text-flint">
             Accès réservé aux administrateurs
           </p>

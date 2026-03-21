@@ -40,10 +40,10 @@ export function Mission() {
         >
           {PILLARS.map((pillar) => (
             <motion.article key={pillar.number} variants={fadeInUp}>
-              <span className="font-display text-display-lg text-chalk select-none [-webkit-text-stroke:1px_theme(colors.slate)]">
+              <span className="font-display text-display-lg font-bold text-chalk select-none [-webkit-text-stroke:1px_theme(colors.slate)]">
                 {pillar.number}
               </span>
-              <h3 className="mt-2 font-display text-2xl text-ink">
+              <h3 className="mt-2 font-display text-2xl font-bold text-ink">
                 {pillar.title}
               </h3>
               <p className="mt-3 leading-relaxed text-flint">

@@ -27,7 +27,7 @@ export function CTAJoindre() {
         >
           <motion.h2
             variants={fadeInUp}
-            className="font-display text-display-md italic"
+            className="font-display text-display-md font-bold"
           >
             Rejoignez le mouvement
           </motion.h2>
@@ -60,7 +60,7 @@ export function CTAJoindre() {
                   placeholder="votre@email.com"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="flex-1 rounded-sm bg-white/10 px-4 py-3 text-white placeholder:text-white/50 focus:outline-none focus:ring-2 focus:ring-white/40"
+                  className="flex-1 bg-white/10 px-4 py-3 text-white placeholder:text-white/50 focus:outline-none focus:ring-2 focus:ring-white/40"
                 />
                 <Button type="submit" variant="primary" size="lg" className="bg-white text-moss hover:bg-white/90">
                   S&apos;inscrire

@@ -17,7 +17,7 @@ export function DesignerProjects({ projects }: DesignerProjectsProps) {
           {projects.map((project) => (
             <article key={project.id} className="group">
               {/* Image */}
-              <div className="relative mb-4 aspect-[16/10] overflow-hidden rounded-sm bg-flint/10">
+              <div className="relative mb-4 aspect-[16/10] overflow-hidden bg-flint/10">
                 {project.imageUrl ? (
                   <Image
                     src={project.imageUrl}

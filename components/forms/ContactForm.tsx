@@ -15,7 +15,7 @@ import { CONTACT_TYPES } from "@/lib/constants"
 import { Button } from "@/components/ui/Button"
 
 const inputClasses =
-  "w-full rounded-sm border border-flint/30 bg-white px-4 py-3 text-sm text-ink placeholder:text-flint/50 focus:border-moss focus:outline-none focus:ring-1 focus:ring-moss"
+  "w-full border border-flint/30 bg-white px-4 py-3 text-sm text-ink placeholder:text-flint/50 focus:border-moss focus:outline-none focus:ring-1 focus:ring-moss"
 const labelClasses = "block text-sm font-medium text-ink mb-1.5"
 const errorClasses = "text-xs text-red-600 mt-1"
 
@@ -59,7 +59,7 @@ export function ContactForm() {
         <div className="flex h-16 w-16 items-center justify-center rounded-full bg-moss/10">
           <CheckCircle className="h-8 w-8 text-moss" />
         </div>
-        <h2 className="font-display text-display-md italic text-ink">
+        <h2 className="font-display text-display-md font-bold text-ink">
           Message envoyé !
         </h2>
         <p className="max-w-md text-flint">

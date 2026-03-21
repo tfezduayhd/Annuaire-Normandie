@@ -28,7 +28,7 @@ export function Navbar() {
     <>
       <header
         className={cn(
-          'sticky top-0 z-40 w-full border-b border-flint/10',
+          'sticky top-0 z-40 w-full border-b border-slate/10',
           'bg-chalk/80 backdrop-blur-md'
         )}
       >
@@ -36,7 +36,7 @@ export function Navbar() {
           {/* Logo */}
           <Link
             href="/"
-            className="font-display text-lg font-semibold tracking-tight text-ink"
+            className="font-display text-lg font-bold tracking-tight text-ink"
           >
             Design Lab Normandie
           </Link>
@@ -47,7 +47,7 @@ export function Navbar() {
               <li key={link.href}>
                 <Link
                   href={link.href}
-                  className="text-sm text-slate transition-colors hover:text-ink"
+                  className="text-sm text-slate transition-colors hover:text-earth"
                 >
                   {link.label}
                 </Link>
@@ -61,12 +61,12 @@ export function Navbar() {
               onClick={toggleTheme}
               aria-label="Changer le thème"
               className={cn(
-                'rounded-sm p-2 text-slate transition-colors hover:bg-slate/10',
-                'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-moss'
+                'p-2 text-slate transition-colors hover:bg-slate/10',
+                'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-earth'
               )}
             >
-              <Sun className="hidden h-5 w-5 dark:block" />
-              <Moon className="block h-5 w-5 dark:hidden" />
+              <Sun className="hidden h-5 w-5 dark:block" strokeWidth={1.5} />
+              <Moon className="block h-5 w-5 dark:hidden" strokeWidth={1.5} />
             </button>
 
             <Button
@@ -82,11 +82,11 @@ export function Navbar() {
               onClick={() => setMenuOpen(true)}
               aria-label="Ouvrir le menu"
               className={cn(
-                'rounded-sm p-2 text-slate transition-colors hover:bg-slate/10 md:hidden',
-                'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-moss'
+                'p-2 text-slate transition-colors hover:bg-slate/10 md:hidden',
+                'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-earth'
               )}
             >
-              <Menu className="h-5 w-5" />
+              <Menu className="h-5 w-5" strokeWidth={1.5} />
             </button>
           </div>
         </nav>

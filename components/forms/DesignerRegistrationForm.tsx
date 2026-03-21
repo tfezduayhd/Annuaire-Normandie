@@ -25,7 +25,7 @@ import { Tag } from "@/components/ui/Tag"
 const STEPS = ["Qui es-tu ?", "Ton activité", "Tes engagements"] as const
 
 const inputClasses =
-  "w-full rounded-sm border border-flint/30 bg-white px-4 py-3 text-sm text-ink placeholder:text-flint/50 focus:border-moss focus:outline-none focus:ring-1 focus:ring-moss"
+  "w-full border border-flint/30 bg-white px-4 py-3 text-sm text-ink placeholder:text-flint/50 focus:border-moss focus:outline-none focus:ring-1 focus:ring-moss"
 const labelClasses = "block text-sm font-medium text-ink mb-1.5"
 const errorClasses = "text-xs text-red-600 mt-1"
 
@@ -191,7 +191,7 @@ export function DesignerRegistrationForm() {
         <div className="flex h-16 w-16 items-center justify-center rounded-full bg-moss/10">
           <CheckCircle className="h-8 w-8 text-moss" />
         </div>
-        <h2 className="font-display text-display-md italic text-ink">
+        <h2 className="font-display text-display-md font-bold text-ink">
           Inscription envoyée !
         </h2>
         <p className="max-w-md text-flint">
@@ -222,7 +222,7 @@ export function DesignerRegistrationForm() {
                 i === currentStep
                   ? "text-moss"
                   : i < currentStep
-                    ? "cursor-pointer text-ink hover:text-moss"
+                    ? "cursor-pointer text-ink hover:text-earth"
                     : "text-flint/50"
               )}
             >
@@ -470,7 +470,7 @@ export function DesignerRegistrationForm() {
                       <label
                         key={key}
                         className={cn(
-                          "flex cursor-pointer items-center gap-3 rounded-sm border px-4 py-3 transition-colors",
+                          "flex cursor-pointer items-center gap-3 border px-4 py-3 transition-colors",
                           watch("seniority") === key
                             ? "border-moss bg-moss/5"
                             : "border-flint/30 hover:border-flint/50"
@@ -500,7 +500,7 @@ export function DesignerRegistrationForm() {
                       <label
                         key={key}
                         className={cn(
-                          "flex cursor-pointer items-center gap-3 rounded-sm border px-4 py-3 transition-colors",
+                          "flex cursor-pointer items-center gap-3 border px-4 py-3 transition-colors",
                           watch("structure") === key
                             ? "border-moss bg-moss/5"
                             : "border-flint/30 hover:border-flint/50"
@@ -696,7 +696,7 @@ export function DesignerRegistrationForm() {
                   />
                 </div>
 
-                <div className="rounded-sm border border-flint/20 bg-chalk p-4">
+                <div className="border border-flint/20 bg-chalk p-4">
                   <label className="flex cursor-pointer items-start gap-3">
                     <input
                       type="checkbox"

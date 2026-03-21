@@ -46,7 +46,7 @@ export function SearchInput({ className }: SearchInputProps) {
         value={value}
         onChange={(e) => setValue(e.target.value)}
         placeholder="Rechercher un designer..."
-        className="w-full rounded-sm border border-flint/20 bg-white py-3 pl-12 pr-4 font-sans text-ink outline-none transition-colors placeholder:text-flint/60 focus:border-moss focus:ring-1 focus:ring-moss"
+        className="w-full border border-flint/20 bg-white py-3 pl-12 pr-4 font-sans text-ink outline-none transition-colors placeholder:text-flint/60 focus:border-moss focus:ring-1 focus:ring-moss"
       />
     </div>
   )

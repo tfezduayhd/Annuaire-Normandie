@@ -11,7 +11,7 @@ export function MarqueeText({ items, className }: MarqueeTextProps) {
   return (
     <div
       className={cn(
-        'overflow-hidden bg-slate py-4 text-chalk',
+        'overflow-hidden border-y border-slate/10 bg-slate py-4 text-chalk',
         className
       )}
       aria-label={content}
