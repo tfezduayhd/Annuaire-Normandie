@@ -4,7 +4,6 @@ import { useEffect } from 'react'
 import Link from 'next/link'
 import { X } from 'lucide-react'
 import { AnimatePresence, motion } from 'framer-motion'
-import { cn } from '@/lib/utils'
 import { Button } from '@/components/ui/Button'
 
 type MobileMenuProps = {
@@ -47,40 +46,42 @@ export function MobileMenu({ open, onClose, links }: MobileMenuProps) {
             animate={{ x: 0 }}
             exit={{ x: '100%' }}
             transition={{ type: 'spring', damping: 30, stiffness: 300 }}
-            className="fixed inset-y-0 right-0 z-50 flex w-full max-w-sm flex-col bg-chalk p-8"
+            className="fixed inset-y-0 right-0 z-50 flex w-full max-w-sm flex-col border-l border-slate bg-chalk"
             role="dialog"
             aria-modal="true"
             aria-label="Menu de navigation"
           >
-            <div className="flex justify-end">
+            {/* Close button */}
+            <div className="flex items-center justify-between border-b border-slate px-6 py-4">
+              <span className="font-mono text-[10px] uppercase tracking-widest text-flint">
+                Menu
+              </span>
               <button
                 onClick={onClose}
                 aria-label="Fermer le menu"
-                className={cn(
-                  'p-2 text-slate transition-colors hover:bg-slate/10',
-                  'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-earth'
-                )}
+                className="p-2 text-slate transition-colors hover:bg-slate hover:text-chalk focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-earth"
               >
                 <X className="h-5 w-5" strokeWidth={1.5} />
               </button>
             </div>
 
-            <nav className="mt-12 flex flex-col gap-6">
-              {links.map((link) => (
+            <nav className="flex flex-1 flex-col divide-y divide-slate/10">
+              {links.map((link, i) => (
                 <Link
                   key={link.href}
                   href={link.href}
                   onClick={onClose}
-                  className="font-display text-2xl font-bold text-ink transition-colors hover:text-earth"
+                  className="flex items-center justify-between px-6 py-5 font-display text-xl font-bold text-ink transition-colors hover:bg-slate hover:text-chalk"
                 >
-                  {link.label}
+                  <span>{link.label}</span>
+                  <span className="font-mono text-xs text-flint">{String(i + 1).padStart(2, '0')}</span>
                 </Link>
               ))}
             </nav>
 
-            <div className="mt-auto pt-8">
-              <Button variant="moss" size="lg" href="/rejoindre" className="w-full">
-                Rejoindre
+            <div className="border-t border-slate p-6">
+              <Button variant="moss" size="lg" href="/rejoindre" className="w-full justify-center">
+                Rejoindre le réseau
               </Button>
             </div>
           </motion.aside>

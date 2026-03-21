@@ -38,15 +38,16 @@ export function SearchInput({ className }: SearchInputProps) {
   return (
     <div className={cn('relative', className)}>
       <Search
-        className="absolute left-4 top-1/2 size-5 -translate-y-1/2 text-flint"
+        className="absolute left-4 top-1/2 size-4 -translate-y-1/2 text-flint"
+        strokeWidth={1.5}
         aria-hidden="true"
       />
       <input
         type="search"
         value={value}
         onChange={(e) => setValue(e.target.value)}
-        placeholder="Rechercher un designer..."
-        className="w-full border border-flint/20 bg-white py-3 pl-12 pr-4 font-sans text-ink outline-none transition-colors placeholder:text-flint/60 focus:border-moss focus:ring-1 focus:ring-moss"
+        placeholder="Rechercher un designer, une ville, une discipline..."
+        className="w-full border border-slate bg-white py-3 pl-11 pr-4 font-sans text-sm text-ink outline-none transition-colors placeholder:text-flint focus:ring-2 focus:ring-inset focus:ring-earth"
       />
     </div>
   )

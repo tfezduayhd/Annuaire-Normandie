@@ -38,15 +38,15 @@ export function DesignerCard({ designer, className }: DesignerCardProps) {
       className={cn('group', className)}
     >
       <Link href={`/annuaire/${slug}`} className="block">
-        {/* Card with hover offset effect */}
+        {/* Block-offset card */}
         <div className="relative">
-          {/* Shadow / accent bg behind */}
-          <div className="absolute inset-0 bg-earth transition-transform duration-300 group-hover:translate-x-1 group-hover:translate-y-1" />
+          {/* Shadow layer — earth color behind */}
+          <div className="absolute inset-0 bg-earth transition-transform duration-200 group-hover:translate-x-1.5 group-hover:translate-y-1.5" />
 
-          {/* Main card — white on Gris Falaise with thin border */}
-          <div className="relative border border-slate/10 bg-white transition-transform duration-300 group-hover:-translate-x-1 group-hover:-translate-y-1">
+          {/* Main card — white, solid border */}
+          <div className="relative border border-slate bg-white transition-transform duration-200 group-hover:-translate-x-1.5 group-hover:-translate-y-1.5">
             {/* Photo */}
-            <div className="relative aspect-[4/3] overflow-hidden bg-flint/10">
+            <div className="relative aspect-[4/3] overflow-hidden bg-chalk">
               {photoUrl ? (
                 <Image
                   src={photoUrl}
@@ -55,8 +55,8 @@ export function DesignerCard({ designer, className }: DesignerCardProps) {
                   className="object-cover transition-transform duration-500 group-hover:scale-105"
                 />
               ) : (
-                <div className="flex size-full items-center justify-center">
-                  <span className="font-display text-3xl font-bold text-flint/30">
+                <div className="flex size-full items-center justify-center border-b border-slate/20">
+                  <span className="font-display text-4xl font-bold text-slate/20">
                     {firstName[0]}
                     {lastName[0]}
                   </span>
@@ -65,7 +65,7 @@ export function DesignerCard({ designer, className }: DesignerCardProps) {
             </div>
 
             {/* Content */}
-            <div className="p-4">
+            <div className="p-5">
               <div className="mb-2 flex items-start justify-between gap-2">
                 <h3 className="font-display text-lg font-bold leading-tight text-ink">
                   {firstName} {lastName}
@@ -92,9 +92,9 @@ export function DesignerCard({ designer, className }: DesignerCardProps) {
               </div>
 
               {/* Location */}
-              <div className="flex items-center gap-1 text-sm text-flint">
-                <MapPin className="size-3.5" strokeWidth={1.5} />
-                <span>
+              <div className="flex items-center gap-1.5 text-sm text-flint">
+                <MapPin className="size-3.5 shrink-0" strokeWidth={1.5} />
+                <span className="font-mono text-[11px] uppercase tracking-wider">
                   {city}, {TERRITORIES[territory]}
                 </span>
               </div>
