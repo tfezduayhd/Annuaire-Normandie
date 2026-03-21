@@ -1,27 +1,29 @@
 import type { Metadata } from 'next'
-import { Inter, Montserrat, Space_Mono } from 'next/font/google'
+import localFont from 'next/font/local'
 import { Providers } from '@/components/providers/Providers'
 import './globals.css'
 
-const inter = Inter({
-  subsets: ['latin'],
+const inter = localFont({
+  src: '../public/fonts/Inter-Variable.woff2',
   variable: '--font-inter',
   display: 'swap',
-  weight: ['400', '500', '600', '700'],
+  weight: '100 900',
 })
 
-const montserrat = Montserrat({
-  subsets: ['latin'],
+const montserrat = localFont({
+  src: '../public/fonts/Montserrat-Variable.woff2',
   variable: '--font-montserrat',
   display: 'swap',
-  weight: ['400', '500', '600'],
+  weight: '100 900',
 })
 
-const spaceMono = Space_Mono({
-  subsets: ['latin'],
+const spaceMono = localFont({
+  src: [
+    { path: '../public/fonts/SpaceMono-Regular.woff2', weight: '400' },
+    { path: '../public/fonts/SpaceMono-Bold.woff2', weight: '700' },
+  ],
   variable: '--font-space-mono',
   display: 'swap',
-  weight: ['400', '700'],
 })
 
 export const metadata: Metadata = {
