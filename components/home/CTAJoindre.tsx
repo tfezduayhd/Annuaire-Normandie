@@ -17,7 +17,7 @@ export function CTAJoindre() {
   }
 
   return (
-    <section className="bg-moss px-6 py-section text-white md:px-12 lg:px-20">
+    <section className="border-b border-slate/10 bg-moss px-6 py-section text-white md:px-12 lg:px-20">
       <div className="mx-auto max-w-3xl text-center">
         <motion.div
           variants={staggerContainer}

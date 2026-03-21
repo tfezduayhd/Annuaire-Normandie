@@ -2,12 +2,12 @@ import { cn } from '@/lib/utils'
 
 const variantStyles = {
   primary:
-    'bg-slate text-white hover:bg-slate/90 dark:bg-chalk dark:text-ink dark:hover:bg-chalk/90',
+    'bg-slate text-white hover:bg-ink hover:text-colza dark:bg-chalk dark:text-ink dark:hover:bg-white dark:hover:text-slate',
   secondary:
     'border border-slate text-slate hover:bg-slate hover:text-white',
-  moss: 'bg-moss text-white hover:bg-moss/90',
-  ghost: 'bg-transparent text-slate hover:bg-chalk',
-  earth: 'bg-earth text-white hover:bg-earth/90',
+  moss: 'bg-moss text-white hover:bg-slate hover:text-white',
+  ghost: 'bg-transparent text-slate hover:bg-slate/10',
+  earth: 'bg-earth text-white hover:bg-slate hover:text-colza',
 } as const
 
 const sizeStyles = {

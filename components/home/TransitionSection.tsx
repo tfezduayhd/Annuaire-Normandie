@@ -38,7 +38,7 @@ const THEMES: TransitionTheme[] = [
 
 export function TransitionSection() {
   return (
-    <section className="bg-earth px-6 py-section text-white md:px-12 lg:px-20">
+    <section className="border-b border-slate/10 bg-earth px-6 py-section text-white md:px-12 lg:px-20">
       <div className="mx-auto max-w-6xl">
         <motion.div
           variants={staggerContainer}
