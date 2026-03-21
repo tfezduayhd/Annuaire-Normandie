@@ -157,9 +157,7 @@ export function CausticsShader() {
     const canvas = canvasRef.current
     if (!canvas) return
 
-    // Respect prefers-reduced-motion
     const motionQuery = window.matchMedia('(prefers-reduced-motion: reduce)')
-    if (motionQuery.matches) return
 
     const resize = () => {
       const dpr = Math.min(window.devicePixelRatio, 1.5)
@@ -174,12 +172,15 @@ export function CausticsShader() {
     if (!result) return
 
     contextRef.current = result
-    const startTime = performance.now()
-
-    animationRef.current = requestAnimationFrame(() => render(startTime))
 
     const observer = new ResizeObserver(resize)
     observer.observe(canvas)
+
+    // Only start animation if reduced motion is not preferred
+    if (!motionQuery.matches) {
+      const startTime = performance.now()
+      animationRef.current = requestAnimationFrame(() => render(startTime))
+    }
 
     const handleMotionChange = (e: MediaQueryListEvent) => {
       if (e.matches) {
