@@ -10,6 +10,9 @@ import { MobileMenu } from '@/components/layout/MobileMenu'
 
 const navLinks = [
   { href: '/annuaire', label: 'Annuaire' },
+  { href: '/experimentations', label: 'Expérimentations' },
+  { href: '/ateliers', label: 'Ateliers & Rencontres' },
+  { href: '/notre-demarche', label: 'Notre démarche' },
   { href: '/contact', label: 'Contact' },
 ] as const
 
