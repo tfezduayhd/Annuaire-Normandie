@@ -3,7 +3,6 @@ import { Hero } from '@/components/home/Hero'
 import { Marquee } from '@/components/home/Marquee'
 import { Mission } from '@/components/home/Mission'
 import { FeaturedDesigners } from '@/components/home/FeaturedDesigners'
-import { TransitionSection } from '@/components/home/TransitionSection'
 import { CTAJoindre } from '@/components/home/CTAJoindre'
 
 export const metadata: Metadata = {
@@ -26,7 +25,6 @@ export default function HomePage() {
       <Marquee />
       <Mission />
       <FeaturedDesigners />
-      <TransitionSection />
       <CTAJoindre />
     </>
   )

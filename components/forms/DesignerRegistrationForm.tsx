@@ -15,7 +15,6 @@ import {
   TERRITORIES,
   SENIORITIES,
   STRUCTURES,
-  TRANSITION_FOCUSES,
 } from "@/lib/constants"
 import { cn } from "@/lib/utils"
 import { fadeInUp } from "@/lib/animations"
@@ -50,7 +49,6 @@ const stepFields: (keyof DesignerRegistrationInput)[][] = [
     "linkedinUrl",
     "instagramUrl",
     "behanceUrl",
-    "transitionFocus",
     "isOpenToCollaboration",
     "isOpenToMentoring",
     "isVolunteer",
@@ -93,7 +91,7 @@ export function DesignerRegistrationForm() {
       linkedinUrl: "",
       instagramUrl: "",
       behanceUrl: "",
-      transitionFocus: [],
+      portfolioUrl: "",
       isOpenToCollaboration: false,
       isOpenToMentoring: false,
       isVolunteer: false,
@@ -105,7 +103,6 @@ export function DesignerRegistrationForm() {
   const watchedSpecialties = watch("specialties")
   const watchedStructure = watch("structure")
   const watchedBio = watch("bio")
-  const watchedTransitionFocus = watch("transitionFocus")
 
   async function goToNext() {
     const fieldsToValidate = stepFields[currentStep]
@@ -131,22 +128,6 @@ export function DesignerRegistrationForm() {
       )
     } else if (current.length < 5) {
       setValue("disciplines", [...current, typedKey], { shouldValidate: true })
-    }
-  }
-
-  function toggleTransitionFocus(key: string) {
-    const current = getValues("transitionFocus")
-    const typedKey = key as DesignerRegistrationInput["transitionFocus"][number]
-    if (current.includes(typedKey)) {
-      setValue(
-        "transitionFocus",
-        current.filter((t) => t !== typedKey),
-        { shouldValidate: true }
-      )
-    } else {
-      setValue("transitionFocus", [...current, typedKey], {
-        shouldValidate: true,
-      })
     }
   }
 
@@ -563,6 +544,22 @@ export function DesignerRegistrationForm() {
                     </p>
                   )}
                 </div>
+
+                <div>
+                  <label htmlFor="portfolioUrl" className={labelClasses}>
+                    Lien portfolio
+                  </label>
+                  <input
+                    id="portfolioUrl"
+                    type="url"
+                    className={inputClasses}
+                    placeholder="https://tonportfolio.fr"
+                    {...register("portfolioUrl")}
+                  />
+                  {errors.portfolioUrl && (
+                    <p className={errorClasses}>URL invalide.</p>
+                  )}
+                </div>
               </div>
             )}
 
@@ -632,24 +629,8 @@ export function DesignerRegistrationForm() {
                   </div>
                 </div>
 
-                <div>
-                  <p className={labelClasses}>Engagements pour la transition</p>
-                  <div className="mt-2 flex flex-wrap gap-2">
-                    {Object.entries(TRANSITION_FOCUSES).map(([key, label]) => (
-                      <button
-                        key={key}
-                        type="button"
-                        onClick={() => toggleTransitionFocus(key)}
-                      >
-                        <Tag active={watchedTransitionFocus?.includes(key as DesignerRegistrationInput["transitionFocus"][number])}>
-                          {label}
-                        </Tag>
-                      </button>
-                    ))}
-                  </div>
-                </div>
-
                 <div className="space-y-3">
+                  <p className={labelClasses}>Implication dans la communauté</p>
                   <label className="flex cursor-pointer items-center gap-3">
                     <input
                       type="checkbox"
@@ -657,7 +638,7 @@ export function DesignerRegistrationForm() {
                       {...register("isOpenToCollaboration")}
                     />
                     <span className="text-sm text-ink">
-                      Je suis ouvert·e aux collaborations
+                      Je suis disponible pour participer à des ateliers collaboratifs
                     </span>
                   </label>
                   <label className="flex cursor-pointer items-center gap-3">
@@ -667,7 +648,7 @@ export function DesignerRegistrationForm() {
                       {...register("isOpenToMentoring")}
                     />
                     <span className="text-sm text-ink">
-                      Je suis disponible pour du mentorat
+                      Je souhaite contribuer à co-construire la communauté Design Lab Normandie
                     </span>
                   </label>
                   <label className="flex cursor-pointer items-center gap-3">
@@ -677,7 +658,7 @@ export function DesignerRegistrationForm() {
                       {...register("isVolunteer")}
                     />
                     <span className="text-sm text-ink">
-                      Je suis bénévole pour les événements
+                      Je suis disponible pour du mentorat auprès de designers moins expérimentés
                     </span>
                   </label>
                 </div>

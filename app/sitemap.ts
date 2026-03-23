@@ -5,7 +5,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://designlab-normandie.fr'
 
   const staticRoutes = [
-    '', '/annuaire', '/rejoindre', '/manifeste', '/projets', '/agenda', '/contact',
+    '', '/annuaire', '/rejoindre', '/contact',
   ].map((route) => ({
     url: `${baseUrl}${route}`,
     lastModified: new Date(),
@@ -20,14 +20,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.6,
   }))
 
-  const projectRoutes = MOCK_DESIGNERS.flatMap((designer) =>
-    designer.projects.map((project) => ({
-      url: `${baseUrl}/projets/${project.slug}`,
-      lastModified: project.createdAt,
-      changeFrequency: 'monthly' as const,
-      priority: 0.5,
-    }))
-  )
-
-  return [...staticRoutes, ...designerRoutes, ...projectRoutes]
+  return [...staticRoutes, ...designerRoutes]
 }

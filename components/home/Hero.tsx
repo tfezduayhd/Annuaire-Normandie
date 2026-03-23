@@ -6,9 +6,7 @@ import { CausticsShader } from '@/components/home/CausticsShader'
 import { fadeInUp, staggerContainer } from '@/lib/animations'
 
 const STATS = [
-  { value: '47', label: 'Designers' },
   { value: '5', label: 'Départements' },
-  { value: '12', label: 'Disciplines' },
 ] as const
 
 export function Hero() {
@@ -105,8 +103,8 @@ export function Hero() {
           transition={{ duration: 0.6, delay: 0.7 }}
           className="border-t border-slate"
         >
-          <div className="grid grid-cols-3 divide-x divide-slate">
-            {STATS.map(({ value, label }) => (
+          <div className="flex divide-x divide-slate">
+              {STATS.map(({ value, label }) => (
               <div key={label} className="py-6 pl-6 pr-4">
                 <span className="block font-display text-3xl font-bold text-ink md:text-4xl">
                   {value}

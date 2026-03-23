@@ -2,11 +2,8 @@ import Link from 'next/link'
 
 const navLinks = [
   { href: '/annuaire', label: 'Annuaire' },
-  { href: '/projets', label: 'Projets' },
-  { href: '/manifeste', label: 'Manifeste' },
-  { href: '/agenda', label: 'Agenda' },
-  { href: '/contact', label: 'Contact' },
   { href: '/rejoindre', label: 'Rejoindre' },
+  { href: '/contact', label: 'Contact' },
 ]
 
 const legalLinks = [
@@ -90,7 +87,7 @@ export function Footer() {
         {/* Bottom bar */}
         <div className="border-t border-chalk/10 px-8 py-4">
           <p className="font-mono text-[10px] uppercase tracking-widest text-chalk/30">
-            © {year} Design Lab Normandie — Structure, Clarté, Transition.
+            © {year} Design Lab Normandie — Structure, Clarté.
           </p>
         </div>
       </div>
