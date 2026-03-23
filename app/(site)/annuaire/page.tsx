@@ -1,7 +1,6 @@
 import { Suspense } from 'react'
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { SectionLabel } from '@/components/ui/SectionLabel'
 import { SearchInput } from '@/components/annuaire/SearchInput'
 import { FilterBar } from '@/components/annuaire/FilterBar'
 import { DesignerGrid } from '@/components/annuaire/DesignerGrid'
@@ -163,15 +162,23 @@ export default function AnnuairePage({ searchParams }: PageProps) {
   const pageDesigners = filtered.slice(start, start + ITEMS_PER_PAGE)
 
   return (
-    <div className="bg-chalk px-6 py-section md:px-12 lg:px-20">
-      <div className="mx-auto max-w-6xl">
-        <SectionLabel number="01" label="ANNUAIRE" className="mb-4" />
-        <h1 className="mb-10 font-display text-display-lg font-bold text-ink">
-          Annuaire
-        </h1>
+    <div className="min-h-screen bg-chalk">
+      {/* Page header — ruled */}
+      <div className="border-b border-slate bg-chalk">
+        <div className="mx-auto max-w-7xl px-6 py-10 md:px-12 lg:px-20">
+          <p className="mb-2 font-mono text-[11px] uppercase tracking-[0.2em] text-flint">
+            / 01 — Annuaire
+          </p>
+          <h1 className="font-display text-display-lg font-bold text-ink">
+            Designers de Normandie
+          </h1>
+        </div>
+      </div>
 
+      {/* Filters + Grid */}
+      <div className="mx-auto max-w-7xl px-6 py-10 md:px-12 lg:px-20">
         <Suspense fallback={null}>
-          <SearchInput className="mb-6" />
+          <SearchInput className="mb-4" />
           <FilterBar />
         </Suspense>
 

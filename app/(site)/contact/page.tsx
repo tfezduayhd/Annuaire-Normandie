@@ -1,6 +1,5 @@
 import type { Metadata } from 'next'
 import { Mail, MapPin, ExternalLink } from 'lucide-react'
-import { SectionLabel } from '@/components/ui/SectionLabel'
 import { ContactForm } from '@/components/forms/ContactForm'
 
 export const metadata: Metadata = {
@@ -9,60 +8,61 @@ export const metadata: Metadata = {
 
 export default function ContactPage() {
   return (
-    <section className="bg-chalk px-6 py-section md:px-12 lg:px-20">
-      <div className="mx-auto max-w-6xl">
-        <SectionLabel number="01" label="CONTACT" />
-        <h1 className="mt-4 font-display text-display-lg font-bold text-ink">
-          Contact
-        </h1>
+    <div className="min-h-screen bg-chalk">
+      {/* Page header */}
+      <div className="border-b border-slate bg-chalk">
+        <div className="mx-auto max-w-7xl px-6 py-10 md:px-12 lg:px-20">
+          <p className="mb-2 font-mono text-[11px] uppercase tracking-[0.2em] text-flint">
+            / 01 — Contact
+          </p>
+          <h1 className="font-display text-display-lg font-bold text-ink">
+            Contact
+          </h1>
+        </div>
+      </div>
 
-        <div className="mt-12 grid gap-12 lg:grid-cols-2">
+      <div className="mx-auto max-w-7xl px-6 py-12 md:px-12 lg:px-20">
+        <div className="grid gap-12 lg:grid-cols-2">
           {/* Left column — Info + Map */}
           <div className="space-y-8">
-            <div className="space-y-4">
-              <div className="flex items-start gap-3">
-                <Mail className="mt-0.5 h-5 w-5 text-flint" />
+            <div className="border border-slate divide-y divide-slate/20">
+              <div className="flex items-start gap-4 p-5">
+                <Mail className="mt-0.5 h-4 w-4 shrink-0 text-flint" strokeWidth={1.5} />
                 <div>
-                  <p className="font-mono text-xs uppercase text-flint">Email</p>
+                  <p className="mb-1 font-mono text-[10px] uppercase tracking-widest text-flint">Email</p>
                   <a
                     href="mailto:contact@designlab-normandie.fr"
-                    className="text-ink underline decoration-flint/30 underline-offset-4 transition-colors hover:decoration-ink"
+                    className="text-sm text-ink underline decoration-slate/30 underline-offset-4 transition-colors hover:decoration-ink"
                   >
                     contact@designlab-normandie.fr
                   </a>
                 </div>
               </div>
 
-              <div className="flex items-start gap-3">
-                <MapPin className="mt-0.5 h-5 w-5 text-flint" />
+              <div className="flex items-start gap-4 p-5">
+                <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-flint" strokeWidth={1.5} />
                 <div>
-                  <p className="font-mono text-xs uppercase text-flint">Adresse</p>
-                  <p className="text-ink">Normandie, France</p>
+                  <p className="mb-1 font-mono text-[10px] uppercase tracking-widest text-flint">Adresse</p>
+                  <p className="text-sm text-ink">Normandie, France</p>
                 </div>
               </div>
 
-              <div className="flex items-start gap-3">
-                <ExternalLink className="mt-0.5 h-5 w-5 text-flint" />
+              <div className="flex items-start gap-4 p-5">
+                <ExternalLink className="mt-0.5 h-4 w-4 shrink-0 text-flint" strokeWidth={1.5} />
                 <div>
-                  <p className="font-mono text-xs uppercase text-flint">Réseaux</p>
+                  <p className="mb-1 font-mono text-[10px] uppercase tracking-widest text-flint">Réseaux</p>
                   <div className="flex gap-4">
-                    <a href="#" className="text-flint transition-colors hover:text-ink">
-                      LinkedIn
-                    </a>
-                    <a href="#" className="text-flint transition-colors hover:text-ink">
-                      Instagram
-                    </a>
-                    <a href="#" className="text-flint transition-colors hover:text-ink">
-                      Twitter
-                    </a>
+                    <a href="#" aria-label="LinkedIn (à venir)" aria-disabled="true" className="text-sm text-flint transition-colors hover:text-ink">LinkedIn</a>
+                    <a href="#" aria-label="Instagram (à venir)" aria-disabled="true" className="text-sm text-flint transition-colors hover:text-ink">Instagram</a>
+                    <a href="#" aria-label="Twitter (à venir)" aria-disabled="true" className="text-sm text-flint transition-colors hover:text-ink">Twitter</a>
                   </div>
                 </div>
               </div>
             </div>
 
             {/* SVG Map of Normandy */}
-            <div className="border border-flint/10 bg-white p-6">
-              <p className="mb-4 font-mono text-xs uppercase text-flint">
+            <div className="border border-slate bg-white p-6">
+              <p className="mb-4 font-mono text-[10px] uppercase tracking-widest text-flint">
                 Les 5 départements normands
               </p>
               <svg
@@ -129,6 +129,6 @@ export default function ContactPage() {
           </div>
         </div>
       </div>
-    </section>
+    </div>
   )
 }
