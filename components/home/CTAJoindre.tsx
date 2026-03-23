@@ -33,7 +33,7 @@ export function CTAJoindre() {
             {/* Left — headline */}
             <div>
               <motion.p variants={fadeInUp} className="mb-3 font-mono text-[11px] uppercase tracking-[0.2em] text-flint">
-                / 04 — Rejoindre
+                / 05 — Rejoindre
               </motion.p>
               <motion.h2
                 variants={fadeInUp}

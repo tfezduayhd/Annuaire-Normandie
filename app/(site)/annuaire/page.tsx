@@ -1,9 +1,8 @@
 import { Suspense } from 'react'
 import type { Metadata } from 'next'
-import Link from 'next/link'
 import { SearchInput } from '@/components/annuaire/SearchInput'
 import { FilterBar } from '@/components/annuaire/FilterBar'
-import { DesignerGrid } from '@/components/annuaire/DesignerGrid'
+import { AnnuaireView } from '@/components/annuaire/AnnuaireView'
 import { MOCK_DESIGNERS } from '@/lib/mock-data'
 import { DISCIPLINES, STRUCTURES, ITEMS_PER_PAGE } from '@/lib/constants'
 import type { DesignerCardData, Discipline, Territory, Structure } from '@/types'
@@ -61,74 +60,6 @@ function filterDesigners(
 }
 
 // ---------------------------------------------------------------------------
-// Pagination component
-// ---------------------------------------------------------------------------
-
-function Pagination({
-  currentPage,
-  totalPages,
-  searchParams,
-}: {
-  currentPage: number
-  totalPages: number
-  searchParams: Record<string, string | undefined>
-}) {
-  if (totalPages <= 1) return null
-
-  function buildHref(page: number) {
-    const params = new URLSearchParams()
-    Object.entries(searchParams).forEach(([k, v]) => {
-      if (v && k !== 'page') params.set(k, v)
-    })
-    if (page > 1) params.set('page', String(page))
-    const qs = params.toString()
-    return qs ? `?${qs}` : '?'
-  }
-
-  const pages = Array.from({ length: totalPages }, (_, i) => i + 1)
-
-  return (
-    <nav
-      aria-label="Pagination"
-      className="mt-12 flex items-center justify-center gap-2"
-    >
-      {currentPage > 1 && (
-        <Link
-          href={buildHref(currentPage - 1)}
-          className="border border-flint/20 px-3 py-2 font-mono text-xs text-flint transition-colors hover:border-flint/40"
-        >
-          ← Précédent
-        </Link>
-      )}
-
-      {pages.map((p) => (
-        <Link
-          key={p}
-          href={buildHref(p)}
-          className={
-            p === currentPage
-              ? 'bg-slate px-3 py-2 font-mono text-xs text-white'
-              : 'border border-flint/20 px-3 py-2 font-mono text-xs text-flint transition-colors hover:border-flint/40'
-          }
-          aria-current={p === currentPage ? 'page' : undefined}
-        >
-          {p}
-        </Link>
-      ))}
-
-      {currentPage < totalPages && (
-        <Link
-          href={buildHref(currentPage + 1)}
-          className="border border-flint/20 px-3 py-2 font-mono text-xs text-flint transition-colors hover:border-flint/40"
-        >
-          Suivant →
-        </Link>
-      )}
-    </nav>
-  )
-}
-
-// ---------------------------------------------------------------------------
 // Page
 // ---------------------------------------------------------------------------
 
@@ -166,9 +97,10 @@ export default function AnnuairePage({ searchParams }: PageProps) {
           <FilterBar />
         </Suspense>
 
-        <DesignerGrid designers={pageDesigners} total={filtered.length} />
-
-        <Pagination
+        <AnnuaireView
+          allDesigners={filtered as DesignerCardData[]}
+          pageDesigners={pageDesigners as DesignerCardData[]}
+          total={filtered.length}
           currentPage={page}
           totalPages={totalPages}
           searchParams={searchParams}

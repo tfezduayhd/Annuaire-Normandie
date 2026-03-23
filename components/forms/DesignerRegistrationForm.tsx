@@ -43,12 +43,8 @@ const stepVariants = {
 // Fields validated per step for partial validation
 const stepFields: (keyof DesignerRegistrationInput)[][] = [
   ["firstName", "lastName", "email", "phone", "city", "territory"],
-  ["disciplines", "specialties", "seniority", "structure", "companyName", "bio"],
+  ["disciplines", "specialties", "seniority", "structure", "companyName", "bio", "portfolioUrl", "linkedinUrl", "websiteUrl"],
   [
-    "websiteUrl",
-    "linkedinUrl",
-    "instagramUrl",
-    "behanceUrl",
     "isOpenToCollaboration",
     "isOpenToMentoring",
     "isVolunteer",
@@ -62,6 +58,8 @@ export function DesignerRegistrationForm() {
   const [rgpdConsent, setRgpdConsent] = useState(false)
   const [localMessage, setLocalMessage] = useState("")
   const [specialtyInput, setSpecialtyInput] = useState("")
+  const [selectedNeeds, setSelectedNeeds] = useState<string[]>([])
+  const [otherNeed, setOtherNeed] = useState("")
 
   const {
     register,
@@ -560,12 +558,7 @@ export function DesignerRegistrationForm() {
                     <p className={errorClasses}>URL invalide.</p>
                   )}
                 </div>
-              </div>
-            )}
 
-            {/* Step 3: Tes engagements */}
-            {currentStep === 2 && (
-              <div className="space-y-6">
                 <div className="grid gap-6 sm:grid-cols-2">
                   <div>
                     <label htmlFor="websiteUrl" className={labelClasses}>
@@ -597,38 +590,13 @@ export function DesignerRegistrationForm() {
                       <p className={errorClasses}>URL invalide.</p>
                     )}
                   </div>
-                  <div>
-                    <label htmlFor="instagramUrl" className={labelClasses}>
-                      Instagram
-                    </label>
-                    <input
-                      id="instagramUrl"
-                      type="url"
-                      className={inputClasses}
-                      placeholder="https://instagram.com/…"
-                      {...register("instagramUrl")}
-                    />
-                    {errors.instagramUrl && (
-                      <p className={errorClasses}>URL invalide.</p>
-                    )}
-                  </div>
-                  <div>
-                    <label htmlFor="behanceUrl" className={labelClasses}>
-                      Behance
-                    </label>
-                    <input
-                      id="behanceUrl"
-                      type="url"
-                      className={inputClasses}
-                      placeholder="https://behance.net/…"
-                      {...register("behanceUrl")}
-                    />
-                    {errors.behanceUrl && (
-                      <p className={errorClasses}>URL invalide.</p>
-                    )}
-                  </div>
                 </div>
+              </div>
+            )}
 
+            {/* Step 3: Tes engagements */}
+            {currentStep === 2 && (
+              <div className="space-y-6">
                 <div className="space-y-3">
                   <p className={labelClasses}>Implication dans la communauté</p>
                   <label className="flex cursor-pointer items-center gap-3">
@@ -661,6 +629,48 @@ export function DesignerRegistrationForm() {
                       Je suis disponible pour du mentorat auprès de designers moins expérimentés
                     </span>
                   </label>
+                </div>
+
+                <div className="space-y-3">
+                  <p className={labelClasses}>
+                    Tes besoins principaux en tant que designer normand(e)
+                  </p>
+                  <div className="grid gap-2 sm:grid-cols-2">
+                    {[
+                      'Visibilité et mise en relation',
+                      'Formations et montée en compétences',
+                      'Ressources et outils partagés',
+                      'Réseau et rencontres',
+                      'Accompagnement de projets',
+                      'Autre',
+                    ].map((need) => (
+                      <label key={need} className="flex cursor-pointer items-center gap-3">
+                        <input
+                          type="checkbox"
+                          className="h-4 w-4 rounded accent-moss"
+                          checked={selectedNeeds.includes(need)}
+                          onChange={(e) => {
+                            if (e.target.checked) {
+                              setSelectedNeeds((prev) => [...prev, need])
+                            } else {
+                              setSelectedNeeds((prev) => prev.filter((n) => n !== need))
+                              if (need === 'Autre') setOtherNeed('')
+                            }
+                          }}
+                        />
+                        <span className="text-sm text-ink">{need}</span>
+                      </label>
+                    ))}
+                  </div>
+                  {selectedNeeds.includes('Autre') && (
+                    <input
+                      type="text"
+                      className={inputClasses}
+                      placeholder="Précisez votre besoin…"
+                      value={otherNeed}
+                      onChange={(e) => setOtherNeed(e.target.value)}
+                    />
+                  )}
                 </div>
 
                 <div>

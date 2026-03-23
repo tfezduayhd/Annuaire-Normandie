@@ -8,31 +8,31 @@ import { fadeInUp, staggerContainer } from '@/lib/animations'
 const PILLARS = [
   {
     number: '01',
-    title: 'Fédérer',
+    title: 'Fédérer un écosystème',
     description:
       'Rassembler les designers normands autour d\u2019une identité commune et construire un écosystème professionnel structuré.',
   },
   {
     number: '02',
-    title: 'Accompagner',
+    title: 'Accompagner des projets',
     description:
       'Soutenir les projets de design sur le territoire et mettre en relation designers et porteurs de projets.',
   },
   {
     number: '03',
-    title: 'Sensibiliser',
+    title: 'Sensibiliser largement',
     description:
       'Faire connaître la valeur du design auprès des entreprises, institutions et du grand public normand.',
   },
   {
     number: '04',
-    title: 'Renforcer',
+    title: 'Renforcer les capacités',
     description:
       'Développer les compétences des designers du territoire par la formation, le partage de pratiques et le mentorat.',
   },
   {
     number: '05',
-    title: 'Mesurer',
+    title: 'Mesurer la valeur',
     description:
       'Documenter et évaluer l\u2019impact du design en Normandie pour en démontrer la valeur économique et sociale.',
   },
