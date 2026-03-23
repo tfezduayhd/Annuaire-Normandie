@@ -5,11 +5,13 @@ import { Button } from '@/components/ui/Button'
 import { CausticsShader } from '@/components/home/CausticsShader'
 import { fadeInUp, staggerContainer } from '@/lib/animations'
 
-const STATS = [
+type Stat = { value: string; label: string; isObjectif?: boolean }
+
+const STATS: Stat[] = [
   { value: '5', label: 'Départements' },
   { value: '18', label: 'Labs en 2026', isObjectif: true },
   { value: '2', label: 'Labs pionniers' },
-] as const
+]
 
 export function Hero() {
   return (
@@ -114,7 +116,7 @@ export function Hero() {
                 <span className="mt-1 block font-mono text-[10px] uppercase tracking-[0.18em] text-flint">
                   {stat.label}
                 </span>
-                {'isObjectif' in stat && stat.isObjectif && (
+                {stat.isObjectif && (
                   <span className="mt-1 block font-mono text-[9px] uppercase tracking-widest text-earth">
                     Objectif 2026
                   </span>

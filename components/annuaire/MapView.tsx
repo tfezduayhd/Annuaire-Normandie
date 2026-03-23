@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 import type { DesignerCardData } from '@/types'
 import { DISCIPLINES } from '@/lib/constants'
 
@@ -36,6 +36,11 @@ const TERRITORY_COORDS: Record<string, { x: number; y: number }> = {
   MANCHE: { x: 150, y: 165 },
   ORNE: { x: 288, y: 255 },
 }
+
+/** Number of dots per column before staggering to the next row */
+const DOTS_PER_ROW = 3
+/** Pixel offset applied between overlapping dots */
+const DOT_OFFSET = 4
 
 // Simplified SVG paths for the 5 departments (approximate polygons in a 540x340 viewBox)
 const DEPARTMENT_PATHS: Array<{
@@ -95,6 +100,7 @@ function getCoords(designer: DesignerCardData): { x: number; y: number } {
 }
 
 export function MapView({ designers }: Props) {
+  const containerRef = useRef<HTMLDivElement>(null)
   const [tooltip, setTooltip] = useState<{
     designer: DesignerCardData
     x: number
@@ -112,7 +118,7 @@ export function MapView({ designers }: Props) {
         </p>
       </div>
 
-      <div className="relative overflow-hidden">
+      <div ref={containerRef} className="relative overflow-hidden">
         <svg
           viewBox="0 0 580 345"
           className="h-auto w-full"
@@ -150,15 +156,16 @@ export function MapView({ designers }: Props) {
           {dots.map(({ designer, coords }, i) => (
             <g key={designer.slug}>
               <circle
-                cx={coords.x + (i % 3) * 4}
-                cy={coords.y + Math.floor(i / 3) * 4}
+                cx={coords.x + (i % DOTS_PER_ROW) * DOT_OFFSET}
+                cy={coords.y + Math.floor(i / DOTS_PER_ROW) * DOT_OFFSET}
                 r="7"
                 fill="#A04035"
                 stroke="white"
                 strokeWidth="1.5"
                 className="cursor-pointer transition-transform hover:scale-110"
                 onMouseEnter={(e) => {
-                  const containerRect = (e.currentTarget.closest('.relative') as HTMLElement).getBoundingClientRect()
+                  const containerRect = containerRef.current?.getBoundingClientRect()
+                  if (!containerRect) return
                   setTooltip({
                     designer,
                     x: e.clientX - containerRect.left,
