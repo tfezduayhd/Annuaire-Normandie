@@ -156,7 +156,7 @@ export function MapView({ designers }: Props) {
                 fill="#A04035"
                 stroke="white"
                 strokeWidth="1.5"
-                className="cursor-pointer transition-all hover:r-9"
+                className="cursor-pointer transition-transform hover:scale-110"
                 onMouseEnter={(e) => {
                   const containerRect = (e.currentTarget.closest('.relative') as HTMLElement).getBoundingClientRect()
                   setTooltip({
@@ -177,9 +177,10 @@ export function MapView({ designers }: Props) {
           <div
             className="pointer-events-none absolute z-10 border border-slate bg-white p-3 shadow-lg"
             style={{
-              left: Math.min(tooltip.x + 12, 999),
+              left: tooltip.x + 12,
               top: tooltip.y - 8,
               maxWidth: '200px',
+              transform: tooltip.x > 380 ? 'translateX(-220px)' : undefined,
             }}
           >
             <p className="font-display text-sm font-bold text-ink">
