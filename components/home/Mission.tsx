@@ -10,19 +10,31 @@ const PILLARS = [
     number: '01',
     title: 'Fédérer',
     description:
-      'Rassembler les designers normands autour d\u2019une identité commune et créer une communauté active et solidaire.',
+      'Rassembler les designers normands autour d\u2019une identité commune et construire un écosystème professionnel structuré.',
   },
   {
     number: '02',
-    title: 'Promouvoir',
+    title: 'Accompagner',
     description:
-      'Rendre visible les talents du territoire et valoriser le design comme levier de développement économique.',
+      'Soutenir les projets de design sur le territoire et mettre en relation designers et porteurs de projets.',
   },
   {
     number: '03',
-    title: 'Transformer',
+    title: 'Sensibiliser',
     description:
-      'Accompagner les transitions écologiques, sociales et numériques par les méthodologies du design.',
+      'Faire connaître la valeur du design auprès des entreprises, institutions et du grand public normand.',
+  },
+  {
+    number: '04',
+    title: 'Renforcer',
+    description:
+      'Développer les compétences des designers du territoire par la formation, le partage de pratiques et le mentorat.',
+  },
+  {
+    number: '05',
+    title: 'Mesurer',
+    description:
+      'Documenter et évaluer l\u2019impact du design en Normandie pour en démontrer la valeur économique et sociale.',
   },
 ] as const
 
@@ -48,7 +60,7 @@ export function Mission() {
           initial="initial"
           whileInView="animate"
           viewport={{ once: true, margin: '-10%' }}
-          className="grid border-l border-slate md:grid-cols-3"
+          className="grid border-l border-slate grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5"
         >
           {PILLARS.map((pillar) => (
             <motion.article

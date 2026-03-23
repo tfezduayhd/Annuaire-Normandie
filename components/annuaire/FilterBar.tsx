@@ -9,7 +9,6 @@ import {
   DISCIPLINES,
   TERRITORIES,
   STRUCTURES,
-  TRANSITION_FOCUSES,
 } from '@/lib/constants'
 
 // ---------------------------------------------------------------------------
@@ -262,15 +261,11 @@ export function FilterBar() {
   const disciplines = getArrayParam(searchParams, 'discipline')
   const territories = getArrayParam(searchParams, 'territory')
   const structures = getArrayParam(searchParams, 'structure')
-  const transitions = getArrayParam(searchParams, 'transition')
-  const collaboration = searchParams.get('collaboration') === 'true'
 
   const activeCount =
     disciplines.length +
     territories.length +
-    structures.length +
-    transitions.length +
-    (collaboration ? 1 : 0)
+    structures.length
 
   // Generic toggle that updates URL params
   const toggle = useCallback(
@@ -298,17 +293,6 @@ export function FilterBar() {
     [router, searchParams]
   )
 
-  const toggleCollaboration = useCallback(() => {
-    const params = new URLSearchParams(searchParams.toString())
-    if (collaboration) {
-      params.delete('collaboration')
-    } else {
-      params.set('collaboration', 'true')
-    }
-    params.delete('page')
-    router.push(`?${params.toString()}`, { scroll: false })
-  }, [router, searchParams, collaboration])
-
   const resetAll = useCallback(() => {
     router.push('?', { scroll: false })
   }, [router])
@@ -317,7 +301,6 @@ export function FilterBar() {
   const disciplineOpts = buildOptions(DISCIPLINES)
   const territoryOpts = buildOptions(TERRITORIES)
   const structureOpts = buildOptions(STRUCTURES)
-  const transitionOpts = buildOptions(TRANSITION_FOCUSES)
 
   // Shared filter content (for mobile drawer reuse)
   const filterContent = (
@@ -340,28 +323,6 @@ export function FilterBar() {
         selected={structures}
         onToggle={(v) => toggle('structure', v, false)}
       />
-      <DrawerSection
-        title="Transition"
-        options={transitionOpts}
-        selected={transitions}
-        onToggle={(v) => toggle('transition', v)}
-      />
-
-      {/* Collaboration toggle */}
-      <div className="mb-6">
-        <button
-          type="button"
-          onClick={toggleCollaboration}
-          className={cn(
-            'border px-3 py-1.5 font-sans text-sm transition-colors',
-            collaboration
-              ? 'border-moss bg-moss/10 text-moss'
-              : 'border-flint/20 text-flint hover:border-flint/40'
-          )}
-        >
-          Ouvert à la collaboration
-        </button>
-      </div>
 
       {activeCount > 0 && (
         <button
@@ -398,26 +359,6 @@ export function FilterBar() {
           onToggle={(v) => toggle('structure', v, false)}
           multi={false}
         />
-        <Dropdown
-          label="Transition"
-          options={transitionOpts}
-          selected={transitions}
-          onToggle={(v) => toggle('transition', v)}
-        />
-
-        {/* Collaboration toggle */}
-        <button
-          type="button"
-          onClick={toggleCollaboration}
-          className={cn(
-            'border px-3 py-2 font-mono text-xs transition-colors',
-            collaboration
-              ? 'border-moss bg-moss/10 text-moss'
-              : 'border-flint/20 text-flint hover:border-flint/40'
-          )}
-        >
-          Collaboration
-        </button>
 
         {activeCount > 0 && (
           <button

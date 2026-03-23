@@ -38,17 +38,6 @@ const structureValues = [
   'ETUDIANT',
 ] as const
 
-const transitionFocusValues = [
-  'ECOLOGIQUE',
-  'SOCIALE',
-  'NUMERIQUE_RESPONSABLE',
-  'ECONOMIE_CIRCULAIRE',
-  'INCLUSION',
-  'SANTE',
-  'ALIMENTATION',
-  'MOBILITE',
-] as const
-
 export const designerRegistrationSchema = z
   .object({
     firstName: z.string().min(2).max(50),
@@ -68,7 +57,7 @@ export const designerRegistrationSchema = z
     linkedinUrl: z.url().optional(),
     instagramUrl: z.url().optional(),
     behanceUrl: z.url().optional(),
-    transitionFocus: z.array(z.enum(transitionFocusValues)),
+    portfolioUrl: z.url().optional(),
     isOpenToCollaboration: z.boolean(),
     isOpenToMentoring: z.boolean(),
     isVolunteer: z.boolean(),

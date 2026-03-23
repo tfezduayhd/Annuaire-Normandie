@@ -6,7 +6,7 @@ import { FilterBar } from '@/components/annuaire/FilterBar'
 import { DesignerGrid } from '@/components/annuaire/DesignerGrid'
 import { MOCK_DESIGNERS } from '@/lib/mock-data'
 import { DISCIPLINES, STRUCTURES, ITEMS_PER_PAGE } from '@/lib/constants'
-import type { DesignerCardData, Discipline, Territory, Structure, TransitionFocus } from '@/types'
+import type { DesignerCardData, Discipline, Territory, Structure } from '@/types'
 
 export const metadata: Metadata = {
   title: 'Annuaire — Design Lab Normandie',
@@ -55,22 +55,6 @@ function filterDesigners(
   const structure = params.structure as Structure | undefined
   if (structure && structure in STRUCTURES) {
     result = result.filter((d) => d.structure === structure)
-  }
-
-  // Collaboration
-  if (params.collaboration === 'true') {
-    result = result.filter((d) => d.isOpenToCollaboration)
-  }
-
-  // Transition
-  const transitions = params.transition?.split(',') as TransitionFocus[] | undefined
-  if (transitions?.length) {
-    result = result.filter((d) => {
-      const full = MOCK_DESIGNERS.find((m) => m.slug === d.slug)
-      return full
-        ? transitions.some((t) => full.transitionFocuses.includes(t))
-        : false
-    })
   }
 
   return result
